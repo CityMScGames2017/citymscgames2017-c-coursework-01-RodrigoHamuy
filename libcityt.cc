@@ -33,7 +33,7 @@ void city_test_generic(cityt<int> &testing) {
   city_test_executedt = 1;
   cityt<int> tmp = testing;
   
-  city_test_generic_c(tmp);
+  city_test_generic_c(testing);
 }
 
 int main(int argc, char *argv[]) {
