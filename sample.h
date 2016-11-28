@@ -18,6 +18,8 @@ private:
 	void checkItems(){
 		if ( adjacent_find( data.begin(), data.end(), not_equal_to<long double>() ) == data.end() ){
 			allItemsAreTheSameValue = true;
+		}else{
+			allItemsAreTheSameValue = false;
 		}
 	}
 public:

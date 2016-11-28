@@ -19,6 +19,8 @@ class samplet : public cityt<T> {
 	void checkItems(){
 		if ( adjacent_find( data.begin(), data.end(), not_equal_to<T>() ) == data.end() ){
 			allItemsAreTheSameValue = true;
+		}else{
+			allItemsAreTheSameValue = false;
 		}
 	}
 public:
@@ -100,12 +102,12 @@ public:
 		out << ">";
 		return out;
 	}
-	friend ostream &operator << (ostream &out, const samplet &test) {	
+	friend ostream &operator << (ostream &out, const samplet &test) {
 		test.print(out);
 		return out;
 	}
 	friend istream &operator >> (istream &in, samplet &newSample) {
-		string token;		
+		string token;
 		T vectorItem;
 		vector<T> *initValues = &(newSample.data);
 		initValues->clear();
@@ -113,7 +115,7 @@ public:
 		in >> token;
 		// Assert input starts with <{size}:
 		// where {size} is the size of the array.
-		if ( 
+		if (
 			(token.substr(0,1) != "<") ||
 			(token.substr(token.length()-1, token.length()) != ":")
 			){
@@ -124,7 +126,7 @@ public:
 			unsigned int length = stoi(token);
 
 			// Extract all the numbers in the array
-			for (unsigned int i = 0; i < length; i++){			
+			for (unsigned int i = 0; i < length; i++){
 				in >> vectorItem;
 				initValues->push_back(vectorItem);
 			}
