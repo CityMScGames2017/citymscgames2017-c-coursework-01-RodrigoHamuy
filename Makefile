@@ -1,7 +1,7 @@
 DIR=.
 CXX=g++
 CC=$(CXX)
-CFLAGS=-I$(DIR) -x c++ -g -std=c++14 -pedantic -Wall -Wpointer-arith -Wwrite-strings -Wcast-qual -Wcast-align -Wformat-security -Wformat-nonliteral -Wmissing-format-attribute -Winline -funsigned-char
+CFLAGS=-I$(DIR) -x c++ -g -std=c++11 -pedantic -Wall -Wpointer-arith -Wwrite-strings -Wcast-qual -Wcast-align -Wformat-security -Wformat-nonliteral -Wmissing-format-attribute -Winline -funsigned-char
 CXXFLAGS=$(CFLAGS)
 LDFLAGS=-L$(DIR) -lcity
 
