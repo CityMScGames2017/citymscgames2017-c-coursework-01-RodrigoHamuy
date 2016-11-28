@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cassert>
+#include <float.h>
 #include "sample.h"
 
 using namespace std;
@@ -27,8 +29,12 @@ int main_test(int argc, char *argv[]) {
     << "std_deviation: "<< s.std_deviation() << endl;
 
     istringstream iss("<6: 7 11 2 13 3 5 > <2: 1.18973e+4932 1.18973e+4932 >");
-    cin.rdbuf(iss.rdbuf());
-    while(cin >> s || !cin.eof())
+    vector <string> results {"2", "1.18973e+4932"};
+    auto result = results.begin();
+    ostringstream expected;
+    ostringstream currValue;
+
+    while(iss >> s || !iss.eof()) {
         cout << s << endl
             << "min: " << s.minimum() << endl
             << "max: " << s.maximum() << endl
@@ -38,6 +44,15 @@ int main_test(int argc, char *argv[]) {
             << "mean: " << s.mean() << endl
             << "variance: " << s.variance() << endl
             << "std_deviation: "<< s.std_deviation() << endl;
-    if (cin.bad()) cerr << "\nBad input\n\n";
+
+        expected << *result;
+        currValue << s.minimum();
+        assert(
+            expected.str()== currValue.str() &&
+            "Min is not what expected"
+            );
+        result++;
+    }
+    if (iss.bad()) cerr << "\nBad input\n\n";
     return(0);
 }
