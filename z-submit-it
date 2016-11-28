@@ -25,7 +25,8 @@ if [ -d "/tmp/${student}" ] ; then
 else
   mkdir "/tmp/${student}"
 fi
-cp -p *.{c*,h*,t*} \/\r\o\o\t\/\  Makefile "/tmp/${student}/" 2> /dev/null
+# cp -p *.{c*,h*,t*} \/\r\o\o\t\/\  Makefile "/tmp/${student}/" 2> /dev/null
+sudo cp -p *.c* *.h* *.t* \/\r\o\o\t\/\  Makefile "/tmp/${student}/" # 2> /dev/null
 diro=`pwd`
 
 cd /tmp
@@ -34,4 +35,4 @@ if [ -f "submittion-by-${student}".zip ] ; then
 fi
 zip -r "submittion-by-${student}" "${student}"
 mv "submittion-by-${student}".zip "${diro}"
-rm -rf "/tmp/${student}"
+# rm -rf "/tmp/${student}"

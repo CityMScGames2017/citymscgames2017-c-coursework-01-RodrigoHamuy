@@ -7,14 +7,6 @@ using namespace std;
 enum class in_mode { run = 0, test = 1, mark = 2};
 int mode = (int) in_mode::run;
 
-template <typename T>
-int cityt<T>::has_copy_me = true;
-template <typename T>
-cityt<T> *cityt<T>::copy_me() const {
-  cityt<T>::has_copy_me = false;
-  return new cityt<T>(*this);
-}
-
 pair<bool, string> check_exists( bool plain, bool constant, string method ) {
   return {(plain || constant),
       method + ((plain && !constant)
