@@ -17,7 +17,7 @@ city *city::copy_me() const {
 #include <utility>
 #include <string>
 void city_test_c(const city &testing) {
-  city tmp = testing;
+  // city tmp = testing;
 }
 
 pair<bool, string> check_exists( bool plain, bool constant, string method ) {
@@ -43,6 +43,6 @@ int main(int argc, char *argv[]) {
   } catch (...) {
     throw;
   }
-  
+
   return result;
 }
