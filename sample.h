@@ -14,14 +14,14 @@ class sample : public city {
 	// DON'T CHANGE ANYTHING ABOVE THIS LINE!!! (You can add more includes)
 private:
 	vector<long double> data;
-	bool allItemsAreTheSameValue {false};
+	bool allItemsAreTheSameValue;
 	void checkItems(){
 		if ( adjacent_find( data.begin(), data.end(), not_equal_to<long double>() ) == data.end() ){
 			allItemsAreTheSameValue = true;
 		}
 	}
 public:
-	sample() {}
+	sample():allItemsAreTheSameValue() {}
 	sample(initializer_list<long double> const &data) : data(data) { checkItems(); }
 	sample(vector<long double> const &data) : data(data) { checkItems(); }
 
