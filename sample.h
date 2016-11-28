@@ -14,7 +14,7 @@ class sample : public city {
 	// DON'T CHANGE ANYTHING ABOVE THIS LINE!!! (You can add more includes)
 private:
 	vector<long double> data;
-	bool allItemsAreTheSameValue = false;
+	bool allItemsAreTheSameValue {false};
 	void checkItems(){
 		if ( adjacent_find( data.begin(), data.end(), not_equal_to<long double>() ) == data.end() ){
 			allItemsAreTheSameValue = true;
@@ -98,12 +98,12 @@ public:
 		out << ">";
 		return out;
 	}
-	friend ostream &operator << (ostream &out, const sample &test) {	
+	friend ostream &operator << (ostream &out, const sample &test) {
 		test.print(out);
 		return out;
 	}
 	friend istream &operator >> (istream &in, sample &newSample) {
-		string token;		
+		string token;
 		long double vectorItem;
 		vector<long double> *initValues = &(newSample.data);
 		initValues->clear();
@@ -111,7 +111,7 @@ public:
 		in >> token;
 		// Assert input starts with <{size}:
 		// where {size} is the size of the array.
-		if ( 
+		if (
 			(token.substr(0,1) != "<") ||
 			(token.substr(token.length()-1, token.length()) != ":")
 			){
@@ -122,7 +122,7 @@ public:
 			unsigned int length = stoi(token);
 
 			// Extract all the numbers in the array
-			for (unsigned int i = 0; i < length; i++){			
+			for (unsigned int i = 0; i < length; i++){
 				in >> vectorItem;
 				initValues->push_back(vectorItem);
 			}
