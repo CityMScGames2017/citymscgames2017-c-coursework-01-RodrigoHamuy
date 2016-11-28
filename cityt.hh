@@ -23,4 +23,6 @@ struct cityt {
 
 void city_test_generic(cityt<int> &testing);
 
+#include "cityt.cc"
+
 #endif
