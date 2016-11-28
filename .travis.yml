@@ -1,0 +1,9 @@
+# Ubuntu 14.04 Trusty support
+sudo: required
+dist: trusty
+# Enable C++ support
+language: cpp
+# Build steps
+script:
+  - make
+  - ./test
