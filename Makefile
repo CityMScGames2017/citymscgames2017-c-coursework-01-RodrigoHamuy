@@ -1,11 +1,14 @@
 DIR=.
 CXX=g++
 CC=$(CXX)
-CFLAGS=-I$(DIR) -x c++ -g -std=c++14 -pedantic -Wall -Wpointer-arith -Wwrite-strings -Wcast-qual -Wcast-align -Wformat-security -Wformat-nonliteral -Wmissing-format-attribute -Winline -funsigned-char
+CFLAGS=-I$(DIR) -x c++ -g -std=c++1y -pedantic -Wall -Wpointer-arith -Wwrite-strings -Wcast-qual -Wcast-align -Wformat-security -Wformat-nonliteral -Wmissing-format-attribute -Winline -funsigned-char
 CXXFLAGS=$(CFLAGS)
 LDFLAGS=-L$(DIR) -lcity
 
-all:	cwk cwkt
+all:	cwk cwkt test
+
+test:	test.o Makefile libcity.a
+	$(CXX) test.o -o test $(LDFLAGS)
 
 cwk:	sample.o Makefile libcity.a
 	$(CXX) sample.o -o cwk $(LDFLAGS)
@@ -14,6 +17,7 @@ cwkt:	cwkt.o Makefile libcityt.a
 	$(CXX) cwkt.o -o cwkt $(LDFLAGS)t
 
 sample.o: sample.cc sample.h Makefile
+test.o: test.cc sample.h Makefile
 main.o: main.cc Makefile
 cwkt.o: cwkt.cc samplet.cc samplet.h Makefile
 
