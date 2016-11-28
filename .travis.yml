@@ -6,4 +6,4 @@ language: cpp
 # Build steps
 script:
   - make
-  - ./cwk
+  - ./test

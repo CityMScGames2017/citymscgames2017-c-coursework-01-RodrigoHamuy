@@ -36,3 +36,11 @@ clean:
 
 submit:
 	./z-submit-it
+
+sample.o: test.cc sample.h Makefile	
+
+test:
+	cwk:	sample.o Makefile libcity.a
+
+clean:
+	-rm *.o *.a cwk cwkt *~ 2> /dev/null
