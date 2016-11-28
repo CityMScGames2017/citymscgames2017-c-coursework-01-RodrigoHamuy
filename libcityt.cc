@@ -31,9 +31,9 @@ void city_test_generic_c(const cityt<int> &testing) {
 int city_test_executedt = 0;
 void city_test_generic(cityt<int> &testing) {
   city_test_executedt = 1;
-  // cityt<int> tmp = testing;
-
-  city_test_generic_c(testing);
+  cityt<int> tmp = testing;
+  
+  city_test_generic_c(tmp);
 }
 
 int main(int argc, char *argv[]) {
@@ -45,6 +45,6 @@ int main(int argc, char *argv[]) {
   } catch (...) {
     throw;
   }
-
+  
   return result;
 }
