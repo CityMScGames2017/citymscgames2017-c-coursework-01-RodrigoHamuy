@@ -6,6 +6,4 @@ language: cpp
 # Build steps
 script:
   - make
-  - echo "<2: 1.18973e+4932 1.18973e+4932 >" | ./cwk
-  - echo "<6: 7 11 2 13 3 5 >" | ./cwk
-  - echo "<6: 7 11 2 13 3 5 >" | ./cwkt
+  - ./cwk
